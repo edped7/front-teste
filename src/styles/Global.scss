@@ -1,0 +1,12 @@
+//========= GLOBAL SCSS ========== //
+// Neste arquivo importamos a estrutura principal de estilos e temas //
+
+
+// Pega o tema Principal e aplica. Seu(s) tema(s) deve(m) ser chamado(s) dentro deste arquivo.
+ @import 'CurrentTheme';
+
+// Importa o Bootstrap Padrão
+ @import '~/../bootstrap/scss/bootstrap.scss';
+
+
+// ========= ATENÇÃO: NUNCA COLOQUE CLASSES AQUI ========= //

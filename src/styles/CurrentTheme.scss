@@ -1,0 +1,15 @@
+//Caixa de Ferramentas do SASS
+@import 'StyleTools/Mixins';
+@import 'StyleTools/Extends';
+@import 'StyleTools/Paths';
+
+
+// ========== Insira seu Tema Aqui ============= //
+ @import './StyleThemes/ThemeKoral/ThemeKoral'; 
+//  @import './StyleThemes/ThemeKoral/ThemeKoralDark'; 
+
+
+ // O Tema Default sempre deve ficar aqui.
+@import './StyleThemes/ThemeDefault/ThemeDefault'; // NÃO REMOVER
+
+// ========= ATENÇÃO: NUNCA COLOQUE CLASSES AQUI ========= //
