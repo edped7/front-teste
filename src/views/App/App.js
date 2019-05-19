@@ -20,7 +20,9 @@ import 'bootstrap/dist/js/bootstrap.min.js'; //Somente para o JqueryModalSample
  */
 const Page1 = lazy(() => import('../Page1')) // Lazy recomendado para grandes blocos ( containers )
 
-
+/****
+*****Este componente foi feito utilizando a biblitoteca do reactrap 
+*****/
 const ReactstrapModalSample = ({ modal, callback }) => {
   return ( // Biblioteca reactstrap
     <Modal isOpen={modal} toggle={callback} className='a-classe-faz-o-que-quero'>
@@ -39,7 +41,9 @@ const ReactstrapModalSample = ({ modal, callback }) => {
     </Modal>)
 }
 
-
+/***
+*** Modal feito com o bootstrap padrão.
+****/
 const JqueryModalSample = () => {
   //Bootstrap default padrão....
   return (<div className="modal fade" id="modalTeste">
@@ -61,24 +65,35 @@ const JqueryModalSample = () => {
   </div>)
 }
 
-
-const ButtonsPage = withRouter((props) => {
+/***
+ * Botões 
+ **/
+const HomePage = withRouter((props) => {
+  //Hoocks
   const [disabled, meuClick] = useState(false);
   const [modal, toggleModal] = useState(false);
-  return (<div className="App">
+  
+  return (
+  <div className="App">
 
-    <JqueryModalSample />
+    {/** Modal jquery  */}
+    <JqueryModalSample /> 
 
-    <ReactstrapModalSample modal={modal} callback={() => toggleModal(modal => !modal)} />
+    {/** Modal do reactstrap */}
+    <ReactstrapModalSample modal={modal} callback={() => toggleModal(modal => !modal)} />   
+    
     <session>
+
+      {/**Componentes do reactrap - INICIO*/}
       <Container>
-        
         <Row>
           <Col sm="4" >
             <Button color="warning" onClick={() => toggleModal(modal => !modal)}>Modal Reactstrap</Button>
           </Col >
         </Row>
+        {/** Fim do reactrap - FIM*/}
 
+        {/**Bootstrap padrão - INICIO */}
         <div className='row'>
           <div className='col-sm-4'>
             <ButtonStoom className="btn-danger" disabled={disabled} click={e => meuClick(disabled => {
@@ -87,6 +102,7 @@ const ButtonsPage = withRouter((props) => {
             })}>Modal Bootstrap .
             </ButtonStoom>
           </div>
+          {/**Bootstrap padrão - FIM */}
 
           <div className='col-sm-4'>
             <Button color="info" onClick={() => props.history.push('/page1/')}>Page 1</Button>
@@ -106,7 +122,7 @@ const App = () => {
      
       <Switch>
         <Route exact path='/'>
-          <ButtonsPage />
+          <HomePage />
         </Route>
        
         <Route exact path='/page1/' render={() => <Page1 />} /> {/** ESSE SÓ SERÁ INSERIDO NA MEMÓRIA QUANDO FOR UTILIZADO (COM LAZY) */}
