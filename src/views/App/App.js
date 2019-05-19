@@ -72,7 +72,7 @@ const HomePage = withRouter((props) => {
   //Hoocks
   const [disabled, meuClick] = useState(false);
   const [modal, toggleModal] = useState(false);
-  
+
   return (
   <div className="App">
 
@@ -82,7 +82,7 @@ const HomePage = withRouter((props) => {
     {/** Modal do reactstrap */}
     <ReactstrapModalSample modal={modal} callback={() => toggleModal(modal => !modal)} />   
     
-    <session>
+    <section>
 
       {/**Componentes do reactrap - INICIO*/}
       <Container>
@@ -110,7 +110,7 @@ const HomePage = withRouter((props) => {
         </div>
       </Container>
       
-    </session>
+    </section>
   </div >);
 });
 
