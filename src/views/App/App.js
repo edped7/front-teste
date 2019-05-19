@@ -1,13 +1,24 @@
 import React, { useState, lazy } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Row, Col } from 'reactstrap';
 
 import Page2 from '../Page2'; // Como conheçemos
-const Page1 = lazy(() => import('../Page1')) // Lazy recomendado para grandes blocos ( containers )
+import ButtonStoom from '../../components/Button/Button';
 
+/**
+ * Imports reactstrap.
+ */
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Row, Col } from 'reactstrap';
+
+/***
+ * Import das dependencias do bootstrap
+ */
 import * as $ from 'jquery'     //Somente para o JqueryModalSample
 import 'bootstrap/dist/js/bootstrap.min.js'; //Somente para o JqueryModalSample
-import ButtonStoom from '../../components/Button/Button';
+
+/***
+ * Imports dos Lazy devem ficar abaixo dos demais imports.
+ */
+const Page1 = lazy(() => import('../Page1')) // Lazy recomendado para grandes blocos ( containers )
 
 
 const ReactstrapModalSample = ({ modal, callback }) => {
