@@ -10,16 +10,12 @@ import './Button.scss';
   *     className: 'Condição do botão (altera seu estilo)'
   */
 
-const Button = (props) =>{
-
-    return (
-        <React.Fragment>
-            <button 
-                className= {`btn ${props.className} ${props.disabled ? 'disabled' : ''}`}>
-                {props.children}
-            </button>
-        </React.Fragment>
-    )
+const Button = (props) => {
+    const {className, children, disabled, click} = props;
+ return(<button className={ `btn ${className} ${disabled ? 'disabled' : disabled }` } onClick={click}>
+        {children}
+    </button>)
 }
+    
 
 export default Button;
