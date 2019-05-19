@@ -4,20 +4,18 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Row, Col } from 'reactstrap';
 
-
 import ButtonStoom from '../../components/Button/Button';
-import * as $ from 'jquery'
-import 'bootstrap/dist/js/bootstrap.min.js';
 
 
 
-import Page2 from '../Page2';
 
-const Page1 = lazy(() => import('../Page1'))
+import Page2 from '../Page2'; // Como conheçemos
+const Page1 = lazy(() => import('../Page1')) // Lazy recomendado para grandes blocos ( containers )
+
 
 const ReactstrapModalSample = ({ modal, callback }) => {
-  return (
-    <Modal isOpen={modal} toggle={callback}>
+  return ( // Biblioteca reactstrap
+    <Modal isOpen={modal} toggle={callback} className='a-classe-faz-o-que-quero'>
       <ModalHeader toggle={callback}>Modal title</ModalHeader>
       <ModalBody>
         Lorem ipsum dolor sit amet,
@@ -34,7 +32,13 @@ const ReactstrapModalSample = ({ modal, callback }) => {
 }
 
 
+
+
+import * as $ from 'jquery'     //Somente para o JqueryModalSample
+import 'bootstrap/dist/js/bootstrap.min.js'; //Somente para o JqueryModalSample
+
 const JqueryModalSample = () => {
+  //Bootstrap default padrão....
   return (<div className="modal fade" id="modalTeste">
     <div className="modal-dialog">
       <div className="modal-content">
@@ -70,7 +74,7 @@ const ButtonsPage = withRouter((props) => {
         
         <Row>
           <Col sm="4" >
-            <Button color="warning" onClick={() => toggleModal(modal => !modal)}>Botão reactstrap</Button>
+            <Button color="warning" onClick={() => toggleModal(modal => !modal)}>Modal Reactstrap</Button>
           </Col >
         </Row>
 
@@ -79,7 +83,7 @@ const ButtonsPage = withRouter((props) => {
             <ButtonStoom className="btn-danger" disabled={disabled} click={e => meuClick(disabled => {
               $('#modalTeste').modal('show');
               return !disabled;
-            })}>Nosso Botão.
+            })}>Modal Bootstrap .
             </ButtonStoom>
           </div>
 
@@ -98,12 +102,15 @@ const App = () => {
 
   return (
     <React.Suspense fallback={'...LOADING'}> {/**AQUI PODEMOS INSERIR UM COMPONENTE E TODA VEZ QUE UMA PÁGINA É CARREGADA NA MEMÓRIA ESTE COMPONENTE SERÁ EXIBIDO. */}
+     
       <Switch>
         <Route exact path='/'>
           <ButtonsPage />
         </Route>
+       
         <Route exact path='/page1/' render={() => <Page1 />} /> {/** ESSE SÓ SERÁ INSERIDO NA MEMÓRIA QUANDO FOR UTILIZADO (COM LAZY) */}
         <Route exact path='/page2/' component={Page2} /> {/** ESSE CARA É INJETADO NA MEMÓRIA SEM SER USADO....(SEM LAZY) */}
+     
       </Switch>
     </React.Suspense>
   );
