@@ -1,16 +1,13 @@
 import React, { useState, lazy } from 'react';
-
 import { Switch, Route, withRouter } from 'react-router-dom';
-
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Row, Col } from 'reactstrap';
-
-import ButtonStoom from '../../components/Button/Button';
-
-
-
 
 import Page2 from '../Page2'; // Como conheçemos
 const Page1 = lazy(() => import('../Page1')) // Lazy recomendado para grandes blocos ( containers )
+
+import * as $ from 'jquery'     //Somente para o JqueryModalSample
+import 'bootstrap/dist/js/bootstrap.min.js'; //Somente para o JqueryModalSample
+import ButtonStoom from '../../components/Button/Button';
 
 
 const ReactstrapModalSample = ({ modal, callback }) => {
@@ -31,11 +28,6 @@ const ReactstrapModalSample = ({ modal, callback }) => {
     </Modal>)
 }
 
-
-
-
-import * as $ from 'jquery'     //Somente para o JqueryModalSample
-import 'bootstrap/dist/js/bootstrap.min.js'; //Somente para o JqueryModalSample
 
 const JqueryModalSample = () => {
   //Bootstrap default padrão....
@@ -60,10 +52,8 @@ const JqueryModalSample = () => {
 
 
 const ButtonsPage = withRouter((props) => {
-
   const [disabled, meuClick] = useState(false);
   const [modal, toggleModal] = useState(false);
-
   return (<div className="App">
 
     <JqueryModalSample />
